@@ -48,13 +48,13 @@
 
 
     
-  <link rel="stylesheet" href="/assets/index.bb5b2df5.css" /><script type="module">(function(){const o=document.querySelectorAll(".fade-in");let i=new IntersectionObserver((t,s)=>{let e=0;t.forEach(r=>{r.intersectionRatio>0&&(e+=100,setTimeout(()=>{r.target.setAttribute("data-state","visible")},e))})},{root:null,rootMargin:"0px",threshold:.2});o.forEach(t=>{t.setAttribute("data-state","hidden"),i.observe(t)})})();
+  <link rel="stylesheet" href="/assets/index.1914f934.css" /><script type="module">const e=document.getElementById("form"),n=document.getElementById("result");e.addEventListener("submit",function(i){if(i.preventDefault(),e.classList.add("was-validated"),!e.checkValidity()){e.querySelectorAll(":invalid")[0].focus();return}const a=new FormData(e),s=Object.fromEntries(a),r=JSON.stringify(s);n.innerHTML="Sending...",fetch("https://api.web3forms.com/submit",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:r}).then(async t=>{let o=await t.json();t.status==200?(n.classList.add("text-green-500"),n.innerHTML=o.message):(console.log(t),n.classList.add("text-red-500"),n.innerHTML=o.message)}).catch(t=>{console.log(t),n.innerHTML="Something went wrong!"}).then(function(){e.reset(),e.classList.remove("was-validated"),setTimeout(()=>{n.style.display="none"},5e3)})});(function(){const i=document.querySelectorAll(".fade-in");let a=new IntersectionObserver((s,r)=>{let t=0;s.forEach(o=>{o.intersectionRatio>0&&(t+=100,setTimeout(()=>{o.target.setAttribute("data-state","visible")},t))})},{root:null,rootMargin:"0px",threshold:.2});i.forEach(s=>{s.setAttribute("data-state","hidden"),a.observe(s)})})();
 </script></head>
   <body>
     
 
-<header class="astro-46AEQD7X">
-<p class="astro-46AEQD7X">ORCHI FRESH</p>
+<header class="astro-PT4NSWXX">
+<p class="astro-PT4NSWXX">ORCHID FRESH</p>
 </header>
     <main>
       <div class="content__container content__container--narrow astro-CDAFP2E6">
@@ -63,11 +63,18 @@
       <p class="fade-in astro-SPD47AMJ">Be the first to know when our new site is live!</p>
       
 
-<form class="signup__form fade-in astro-6XV744NB" action="">
-  <input type="email" placeholder="Email Address" required class="astro-6XV744NB">
+<form class="signup__form fade-in astro-OHRBJI27" action="https://api.web3forms.com/submit" method="POST" id="form">
+  <input type="hidden" name="access_key" value="fd71803b-2c58-4589-bee9-6d9a3f5befef" class="astro-OHRBJI27">
+  <div class="astro-OHRBJI27">
+  <input type="text" id="exampleInputName1" placeholder="Name" required class="astro-OHRBJI27">
+  <input type="text" class=" astro-OHRBJI27" id="exampleInputName" placeholder="Your Name" name="Lastname">
+  <input type="email" id="exampleInputEmail1" placeholder="Email Address" required class="astro-OHRBJI27">
+
   
 
 <button class="btn astro-UEAYSLEB" target="" rel="">Submit</button>
+  <div id="result" class="mt-3 text-center astro-OHRBJI27"></div>
+</div>
 </form>
     </article>
 </div>
